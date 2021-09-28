@@ -1,9 +1,24 @@
+/* colors */
+:root{
+    --black: #222;
+    --blue1: #122ab2; 
+    --blue2: #2c70ff;
+    --blue3: #66d9eb;
+    --white: #fff;
+    --gray: #7c7c7c;
+    --gray2: #a4a4a4;
+    --gray3: #f7f7f7;
+    --purple: #ae91ff;
+    --pink: #f9265e;
+    --largura: 960px;
+}
+
+
 /* cleaning */
 *{
     padding: 0;
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    color: var(--black);
     box-sizing: border-box;
 }
 ul{
@@ -18,27 +33,12 @@ img{
 }
 
 
-/* colors */
-:root{
-    --black: #222;
-    --blue1: #122ab2; 
-    --blue2: #2c70ff;
-    --blue3: #66d9eb;
-    --white: #fff;
-    --gray: #7c7c7c;
-    --gray2: #a4a4a4;
-    --gray3: #f7f7f7;
-    --purple: #ae91ff;
-    --pink: #f9265e;
-}
-
-
 /* superinfo */
 .superinfo-bg{
     background-color: var(--blue1);
 }
 .superinfo{
-    max-width: 960px;
+    max-width: var(--largura);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -57,7 +57,7 @@ img{
     background-color: var(--blue2);
 }
 .menu{
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 0 auto;
     display: flex;
     padding: 15px 0;
@@ -108,7 +108,7 @@ img{
 .introduction{
     font-size: 4em;
     line-height: 1;
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 0 auto;
     padding: 60px 10px;
 }
@@ -117,7 +117,7 @@ img{
 /* about */
 .about{
     border-top: 2px solid var(--blue2);
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 0 auto;
     padding: 60px 0 10px 0;
     display: flex;
@@ -140,13 +140,13 @@ img{
 }
 .about-img{
     flex: 1 1 160px;
-    margin: 0 10px;
+    margin: 0 5px 10px 5px;
 }
 
 
 /* products */
 .products{
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 60px auto;
 }
 .products h2{
@@ -181,7 +181,7 @@ img{
 
 /* prices */
 .price{
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 0 auto;
     background-color: var(--gray3);
     padding: 60px;
@@ -249,27 +249,16 @@ img{
     font-size: 1.75em;
     padding: 10px 0;
     text-align: center;
-    margin: 10px;
 }
 .price-item a:hover{
     background-color: var(--black);
     color: var(--white);
 }
-@media (max-width: 800px){.price{
-    padding: 0 10px;
-}
-    .price .ouro{
-        order: -2;
-    }
-    .price .prata{
-        order: -1;
-    }
-}
 
 
 /* qualities */
 .qualities{
-    max-width: 960px;
+    max-width:  var(--largura);
     margin: 60px auto;
     display: flex;
     flex-wrap: wrap;
@@ -308,7 +297,7 @@ img{
 /* newsletter */
 .newsletter{
     background-color: var(--gray3);
-    padding: 60px calc((100% - 960px) / 2);
+    padding: 60px calc((100% -  var(--largura)) / 2);
     display: flex;
     flex-wrap: wrap;
 }
@@ -345,9 +334,9 @@ img{
     padding: 10px;
     margin: 0px;
 }
-input:focus{
-    border-color: var(--blue1);
-    border-radius: 0px;
+.newsletter-form input:focus{
+    outline: none;
+    background-color: #e9f0ff;
 }
 .newsletter-form button{
     flex: 1 1 40px;
@@ -369,13 +358,8 @@ input:focus{
 
 /* footer */
 .footer{
-    display: flex;
     background-color: var(--blue2);
-    height: 100px;
-    align-items: center;
-}
-.footer p{
-    flex: 1;
+    padding: 22px 10px;
     text-align: center;
     font-size: 1em;
     color: var(--blue1);
@@ -385,15 +369,35 @@ input:focus{
     position: relative;
     font-weight: bold;
 }
-@media (max-width: 420px){.introduction{
-    font-size: 3em;
+
+
+@media (max-width: 768){
+    .price{
+    padding: 0 10px;
+    }
+    .price .ouro{
+        order: -2;
+    }
+    .price .prata{
+        order: -1;
+    }
 }
-}
-@media (max-width: 567px){.newsletter-info{
-    text-align: center;
-}
-}
-@media (max-width: 600px){.superinfo{
+@media (max-width: 576px){
+    .superinfo, .menu, .menu *, .superinfo p{
     justify-content: center;
-}
+    text-align: center;
+    }
+    .about-img img{
+        margin: 0 auto;
+    }
+    .introduction{
+        font-size: 3em;
+    }
+    .newsletter-info{
+        text-align: center;
+        }
+    .footer, .footer p{
+        text-align: center;
+        justify-content: center;
+    }
 }
